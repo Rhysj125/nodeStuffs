@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script src="index.js"></script>
+
+</head>
+<body>
+    
+    <div class="container col-sm-6">
+        <br>
+        <div class="jumbotron">
+            <h1 class="display-4">Send Message</h1>
+            <br>
+            <input class="form-control" id="name" placeholder="Name">
+            <br>
+            <textarea class="form-control" id="message" placeholder="Message"></textarea>
+            <br>
+            <button class="btn btn-success" id="btnSend">Send</button>
+        </div>
+
+        <div id="messages">
+
+        </div>
+    </div>
+
+    <div class="container col-sm-12 col-md-6">
+        <br>
+        <div class="jumbotron">
+            <h1 class="display-4">Create Product</h1>
+            <br>
+            <div class="custom-control custom-radio">
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="allProducts" name="groupOfDefaultRadios" onchange="onFilterChange(this)" checked>
+                    <label class="custom-control-label" for="allProducts">All</label>
+                </div>
+                  
+                  <!-- Group of default radios - option 2 -->
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="foodProds" name="groupOfDefaultRadios" data-filter="1" onchange="onFilterChange(this)">
+                    <label class="custom-control-label" for="foodProds">Food</label>
+                </div>
+                  
+                  <!-- Group of default radios - option 3 -->
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="drinkProds" name="groupOfDefaultRadios" data-filter="2" onchange="onFilterChange(this)">
+                    <label class="custom-control-label" for="drinkProds">Drinks</label>
+                </div>
+            </div>
+            <br>
+            <input class="form-control" id="productName" placeholder="Product Name">
+            <br>
+            <textarea class="form-control" id="price" placeholder="£"></textarea>
+            <br>
+            <input class="form-control" id="type" placeholder="product Type"></input>
+            <br>
+            <button class="btn btn-success" id="btnCreateProduct">Send</button>
+        </div>
+
+        <div id="products">
+
+        </div>
+    </div>
+      
+      <!-- Modal -->
+    <div class="modal fade" id="modalProduct" tabindex="-1" role="dialog" aria-labelledby="productModalTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalTitle"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
